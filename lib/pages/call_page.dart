@@ -90,9 +90,10 @@ class _CallPageState extends State<CallPage> {
                           },
                           icon: Icon(
                             Icons.mic_none_outlined,
-                            color: Colors.white,size: 50,
-
+                            color: Colors.white,
+                            size: 50,
                           ),
+                          selectedIcon: Icon(Icons.mic_off_outlined),
                         ),
                       ),
                       SizedBox(width: 50),
@@ -112,7 +113,11 @@ class _CallPageState extends State<CallPage> {
                               ),
                             );
                           },
-                          icon: Icon(Icons.phone_outlined, color: Colors.white,size: 50,),
+                          icon: Icon(
+                            Icons.phone_outlined,
+                            color: Colors.white,
+                            size: 50,
+                          ),
                         ),
                       ),
                     ],
