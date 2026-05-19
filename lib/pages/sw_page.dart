@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:chewie/chewie.dart';
 import 'package:video_player/video_player.dart';
 import 'package:video_player_web/video_player_web.dart';
+import 'package:video_player_web/video_player_web.dart';
 
 class StoryPage extends StatefulWidget {
   final String name;
@@ -18,18 +19,11 @@ late VideoPlayerController _controller;
 class _StoryPageState extends State<StoryPage> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    _controller =
-        VideoPlayerController.networkUrl(
-            Uri.parse(
-              'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
-            ),
-          )
-          ..initialize().then((_) {
-            // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-            setState(() {});
-          });
+    _controller = VideoPlayerController.asset('assets/videos/uj.mp4')
+      ..initialize().then((_) {
+        setState(() {});
+      });
   }
 
   @override
@@ -50,6 +44,19 @@ class _StoryPageState extends State<StoryPage> {
                   child: VideoPlayer(_controller),
                 )
               : Container(),
+          FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                _controller.value.isPlaying
+                    ? _controller.pause()
+                    : _controller.play();
+              });
+            },
+            child: Icon(
+              _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
+            ),
+          ),
+
           Positioned(
             top: 50,
             left: 20,
