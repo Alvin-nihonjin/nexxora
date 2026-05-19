@@ -20,7 +20,7 @@ List<ChatsModel> cht = [
     avatarUrl: "assets/images/pb2.jpg",
   ),
   ChatsModel(
-    name: "my mbg gweh",
+    name: "iyo",
     phone: "0811111111",
     bio: "looooo",
     date: "5/9/26",

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nexxora/pages/sw_page.dart';
 import 'package:nexxora/services/story_services.dart';
 
 class StoryModel {
@@ -31,17 +32,17 @@ class _StoryWidgetState extends State<StoryWidget> {
         itemBuilder: (context, index) {
           final story = sl[index];
           return GestureDetector(
-            onTap: () {
+            onTap: () { Navigator.push(context, MaterialPageRoute(builder: (context) => StoryPage(name: sl[index].name, imgUrl: sl[index].imageUrl),));
               setState(() {
-                story.seen = true; // ubah jadi sudah dilihat
+                sl[index].seen = true; // ubah jadi sudah dilihat
               });
             },
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
+              padding: EdgeInsets.symmetric(horizontal: 8),
               child: Column(
                 children: [
                   Container(
-                    padding: const EdgeInsets.all(3),
+                    padding: EdgeInsets.all(3),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
@@ -51,13 +52,13 @@ class _StoryWidgetState extends State<StoryWidget> {
                     ),
                     child: CircleAvatar(
                       radius: 30,
-                      backgroundImage: AssetImage(story.imgUrl),
+                      backgroundImage: AssetImage(story.imageUrl),
                     ),
                   ),
-                  const SizedBox(height: 5),
+                  SizedBox(height: 5),
                   Text(
                     story.name,
-                    style: const TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white),
                   ),
                 ],
               ),

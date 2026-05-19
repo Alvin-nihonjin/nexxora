@@ -1,53 +1,71 @@
 import 'package:flutter/material.dart';
-import '';
-class SwPage extends StatefulWidget {
-  final String videoUrl;
-  const SwPage({super.key, required this.videoUrl});
+
+class StoryPage extends StatefulWidget {
+  final String name;
+  final String imgUrl;
+  const StoryPage({super.key, required this.name, required this.imgUrl});
 
   @override
-  State<SwPage> createState() => _SwPageState();
+  State<StoryPage> createState() => _StoryPageState();
 }
 
-class _SwPageState extends State<SwPage> {
-  late VideoPlayerController _controller;
-  @override
-  void initState() {
-    super.initState();
-    _controller = VideoPlayerController.asset("assets/video.mp4")
-      ..initialize().then((_) {
-        setState(() {}); // refresh UI setelah video siap
-      });
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+class _StoryPageState extends State<StoryPage> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Video Player")),
-      body: Center(
-        child: _controller.value.isInitialized
-            ? AspectRatio(
-          aspectRatio: _controller.value.aspectRatio,
-          child: VideoPlayer(_controller),
-        )
-            : const CircularProgressIndicator(),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            _controller.value.isPlaying
-                ? _controller.pause()
-                : _controller.play();
-          });
-        },
-        child: Icon(
-          _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
-        ),
+      backgroundColor: Colors.black,
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Image.asset(
+              widget.imgUrl,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Positioned(
+            top: 50,
+            left: 20,
+            right: 20,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 18,
+                      backgroundImage: AssetImage("assets/profile.jpg"),
+                    ),
+                    SizedBox(width: 10),
+                    Text(
+                      widget.name,
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+
+          Positioned(
+            bottom: 40,
+            left: 20,
+            right: 20,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+
+                IconButton(
+                  icon: Icon(Icons.chat_bubble_outline,
+                      color: Colors.white, size: 28),
+                  onPressed: () {},
+                ),
+
+
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -40,7 +40,7 @@ class _MenuPageState extends State<MenuPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color(0xff1E293B),
+        backgroundColor: Color(0xff1E293B),
         currentIndex: selectedIndex,
         elevation: 10,
         onTap: (value) {

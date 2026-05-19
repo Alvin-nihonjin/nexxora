@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:nexxora/pages/call_page.dart';
+import 'package:nexxora/pages/videocall_page.dart';
+import 'package:nexxora/services/chats_service.dart';
 
 class ProfilePage extends StatelessWidget {
   final String name;
@@ -24,7 +27,7 @@ class ProfilePage extends StatelessWidget {
         flexibleSpace: Align(
           alignment: Alignment.center,
           child: Padding(
-            padding: const EdgeInsets.only(top: 20),
+            padding: EdgeInsets.only(top: 20),
             child: Text(
               "Contact Info",
               style: TextStyle(color: Colors.white, fontSize: 18),
@@ -37,7 +40,7 @@ class ProfilePage extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.all(16),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Row(
               children: [
@@ -67,9 +70,36 @@ class ProfilePage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                _ActionButton(icon: Icons.call, label: "Audio"),
-                _ActionButton(icon: Icons.videocam, label: "Video"),
-                _ActionButton(icon: Icons.search, label: "Search"),
+                Column(
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => CallPage(name: name, phone: phone, avatarUrl: avatarUrl)),
+                        );
+                      },
+                      icon: Icon(Icons.call, color: Colors.white),
+                    ),
+                    Text("Call", style: TextStyle(color: Colors.white)),
+                  ],
+                ),
+                Column(
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => VideocallPage(),
+                          ),
+                        );
+                      },
+                      icon: Icon(Icons.videocam, color: Colors.white),
+                    ),
+                    Text("Video Call", style: TextStyle(color: Colors.white)),
+                  ],
+                ),
               ],
             ),
             SizedBox(height: 20),
@@ -88,49 +118,88 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
             Spacer(),
-            _DangerButton(text: "Block $name"),
-            SizedBox(height: 10),
-            _DangerButton(text: "Report $name"),
+            Column(
+              children: [
+                TextButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: Text("Block $name?"),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  title: Text("Done blocked $name"),
+                                ),
+                              );
+                            },
+                            child: Text("Yes"),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  title: Text("Cancel block $name"),
+                                ),
+                              );
+                            },
+                            child: Text("No"),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                  child: Text(
+                    "Block $name",
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: Text("Block $name?"),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  title: Text("Done blocked $name"),
+                                ),
+                              );
+                            },
+                            child: Text("Yes"),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  title: Text("Cancel block $name"),
+                                ),
+                              );
+                            },
+                            child: Text("No"),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                  child: Text(
+                    "Block $name",
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class _ActionButton extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  const _ActionButton({required this.icon, required this.label});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Icon(icon, color: Colors.white),
-        Text(label, style: TextStyle(color: Colors.white)),
-      ],
-    );
-  }
-}
-
-class _DangerButton extends StatelessWidget {
-  final String text;
-  const _DangerButton({required this.text});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Color(0xff1E293B),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Text(
-        text,
-        style: TextStyle(color: Colors.red),
-        textAlign: TextAlign.center,
       ),
     );
   }

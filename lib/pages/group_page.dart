@@ -12,14 +12,14 @@ class _GroupPageState extends State<GroupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0D1B2A),
+      backgroundColor: Color(0xFF0D1B2A),
       appBar: AppBar(
         backgroundColor: Color(0xFF0D1B2A),
         elevation: 0,
         scrolledUnderElevation: 0,
         title: Text("Group", style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),),
         automaticallyImplyLeading: false,
-        actions: const [
+        actions: [
           Icon(Icons.search, color: Colors.white,),
           SizedBox(width: 10),
           Icon(Icons.more_vert, color: Colors.white,),
@@ -27,7 +27,7 @@ class _GroupPageState extends State<GroupPage> {
         ],
       ),
       body: ListView(
-        children: const [
+        children: [
           SizedBox(height: 10),
           GroupWidget(name: "", lastMessage: "", time: "", avatarUrl: ""),
         ],
@@ -36,7 +36,7 @@ class _GroupPageState extends State<GroupPage> {
         onPressed: () {},
         backgroundColor: Color(0xff8B5CF6),
         shape: CircleBorder(),
-        child: const Icon(Icons.add, color: Colors.white,),
+        child: Icon(Icons.add, color: Colors.white,),
       ),
     );
   }

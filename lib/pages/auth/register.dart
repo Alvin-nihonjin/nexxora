@@ -20,7 +20,7 @@ class _RegisterState extends State<Register> {
       body: Container(
         width: size.width,
         height: size.height,
-        padding: const EdgeInsets.all(20),
+        padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
           gradient: RadialGradient(
             colors: [Color(0xff0F172A), Color(0xff0F172A)],
@@ -30,21 +30,21 @@ class _RegisterState extends State<Register> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset('assets/images/yess.png'),
-            SizedBox(height: 40,),
+            SizedBox(height: 40),
             Text(
               "Sign in to Nexora",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-              ),
+              style: TextStyle(color: Colors.white, fontSize: 20),
             ),
-            Text("Enter your phone number to continue", style: TextStyle(color: Colors.grey, fontSize: 16),),
+            Text(
+              "Enter your phone number to continue",
+              style: TextStyle(color: Colors.grey, fontSize: 16),
+            ),
             SizedBox(height: 50),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  padding: EdgeInsets.symmetric(horizontal: 25),
                   child: Text(
                     "Country",
                     style: TextStyle(fontSize: 25, color: Colors.white),
@@ -54,7 +54,7 @@ class _RegisterState extends State<Register> {
             ),
             SizedBox(height: 10),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
+              padding: EdgeInsets.symmetric(horizontal: 25),
               child: SizedBox(
                 height: 50,
                 child: TextField(
@@ -75,7 +75,7 @@ class _RegisterState extends State<Register> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  padding: EdgeInsets.symmetric(horizontal: 25),
                   child: Text(
                     "Phone Number",
                     style: TextStyle(fontSize: 25, color: Colors.white),
@@ -83,9 +83,9 @@ class _RegisterState extends State<Register> {
                 ),
               ],
             ),
-            SizedBox(height: 10,),
+            SizedBox(height: 10),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
+              padding: EdgeInsets.symmetric(horizontal: 25),
               child: SizedBox(
                 height: 50,
                 child: TextField(
@@ -106,7 +106,7 @@ class _RegisterState extends State<Register> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  padding: EdgeInsets.symmetric(horizontal: 25),
                   child: SizedBox(
                     width: 300,
                     height: 50,
@@ -125,17 +125,24 @@ class _RegisterState extends State<Register> {
                           MaterialPageRoute(builder: (context) => MenuPage()),
                         );
                       },
-                      child: Text("Next", style: TextStyle(color: Colors.white)),
+                      child: Text(
+                        "Next",
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 40,),
+            SizedBox(height: 40),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: Text("By continuing, your agree to Nexora's Terms of Service and Privacy Policy", style: TextStyle(color: Colors.white, fontSize: 16), textAlign: TextAlign.center, ),
-            )
+              padding: EdgeInsets.symmetric(horizontal: 25),
+              child: Text(
+                "By continuing, your agree to Nexora's Terms of Service and Privacy Policy",
+                style: TextStyle(color: Colors.white, fontSize: 16),
+                textAlign: TextAlign.center,
+              ),
+            ),
           ],
         ),
       ),
