@@ -29,7 +29,7 @@ class ProfilePage extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.only(top: 20),
             child: Text(
-              "Contact Info",
+              "Contact Info njirr",
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
           ),
