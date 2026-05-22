@@ -7,8 +7,14 @@ import 'package:video_player_web/video_player_web.dart';
 class StoryPage extends StatefulWidget {
   final String name;
   final String imgUrl;
+  final String vdsw;
 
-  const StoryPage({super.key, required this.name, required this.imgUrl});
+  const StoryPage({
+    super.key,
+    required this.name,
+    required this.imgUrl,
+    required this.vdsw,
+  });
 
   @override
   State<StoryPage> createState() => _StoryPageState();
@@ -20,7 +26,7 @@ class _StoryPageState extends State<StoryPage> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset('assets/videos/uj.mp4')
+    _controller = VideoPlayerController.asset(widget.vdsw)
       ..initialize().then((_) {
         setState(() {});
       });
@@ -44,6 +50,7 @@ class _StoryPageState extends State<StoryPage> {
                   child: VideoPlayer(_controller),
                 )
               : Container(),
+
           FloatingActionButton(
             onPressed: () {
               setState(() {

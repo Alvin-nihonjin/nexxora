@@ -5,12 +5,14 @@ import 'package:nexxora/services/story_services.dart';
 class StoryModel {
   final String name;
   final String imgUrl;
+  final String vdsw;
   bool seen;
 
   StoryModel({
     required this.name,
     required this.imgUrl,
-    this.seen = false
+    required this.vdsw,
+    this.seen = false,
   });
 }
 
@@ -32,7 +34,17 @@ class _StoryWidgetState extends State<StoryWidget> {
         itemBuilder: (context, index) {
           final story = sl[index];
           return GestureDetector(
-            onTap: () { Navigator.push(context, MaterialPageRoute(builder: (context) => StoryPage(name: sl[index].name, imgUrl: sl[index].imageUrl),));
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => StoryPage(
+                    name: sl[index].name,
+                    imgUrl: sl[index].imageUrl,
+                    vdsw: sl[index].vdsw,
+                  ),
+                ),
+              );
               setState(() {
                 sl[index].seen = true; // ubah jadi sudah dilihat
               });
@@ -56,10 +68,7 @@ class _StoryWidgetState extends State<StoryWidget> {
                     ),
                   ),
                   SizedBox(height: 5),
-                  Text(
-                    story.name,
-                    style: TextStyle(color: Colors.white),
-                  ),
+                  Text(story.name, style: TextStyle(color: Colors.white)),
                 ],
               ),
             ),
