@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nexxora/pages/sw_page.dart';
 import 'package:nexxora/services/story_services.dart';
+import 'package:video_player/video_player.dart';
 
 class StoryModel {
   final String name;
@@ -46,7 +47,7 @@ class _StoryWidgetState extends State<StoryWidget> {
                 ),
               );
               setState(() {
-                sl[index].seen = true; // ubah jadi sudah dilihat
+                sl[index].seen = true;
               });
             },
             child: Padding(
