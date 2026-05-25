@@ -48,7 +48,7 @@ class _StoryWidgetState extends State<StoryWidget> {
                 ),
               );
               setState(() {
-                sl[index].seen = true;
+                sl[index].seen = false;
               });
             },
             child: Padding(
@@ -60,7 +60,7 @@ class _StoryWidgetState extends State<StoryWidget> {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: story.seen ? Colors.grey : Colors.green,
+                        color: story.seen ? Colors.green : Colors.grey,
                         width: 3,
                       ),
                     ),

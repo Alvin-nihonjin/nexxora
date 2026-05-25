@@ -31,7 +31,6 @@ class _HomePageState extends State<HomePage> {
         ),
         automaticallyImplyLeading: false,
         actions: [
-          Icon(Icons.search, color: Colors.white),
           SizedBox(width: 10),
           Builder(
             builder: (context) {
@@ -49,7 +48,7 @@ class _HomePageState extends State<HomePage> {
       endDrawer: SizedBox(
         width: 200,
         child: Drawer(
-          backgroundColor: Color(0xff182234), 
+          backgroundColor: Color(0xff182234),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -67,8 +66,11 @@ class _HomePageState extends State<HomePage> {
                 },
                 child: Row(
                   children: [
-                    Icon(Icons.settings, color: Colors.white, size: 25,),
-                    Text("Setting", style: TextStyle(color: Colors.white, fontSize: 25)),
+                    Icon(Icons.settings, color: Colors.white, size: 25),
+                    Text(
+                      "Setting",
+                      style: TextStyle(color: Colors.white, fontSize: 25),
+                    ),
                   ],
                 ),
               ),

@@ -1,6 +1,7 @@
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vlc_player/flutter_vlc_player.dart';
+import 'package:nexxora/pages/menu_page_akbar.dart';
 import 'package:video_player/video_player.dart';
 
 class StoryPage extends StatefulWidget {
@@ -33,8 +34,7 @@ class _StoryPageState extends State<StoryPage> {
         _chewieController = ChewieController(
           videoPlayerController: _videoPlayerController,
           autoPlay: true,
-          looping: true,
-          pauseOnBackgroundTap: true,
+          looping: false,
           showControls: false,
         );
       });
@@ -55,16 +55,24 @@ class _StoryPageState extends State<StoryPage> {
       body: Stack(
         children: [
           _chewieController != null &&
-                  _chewieController!.videoPlayerController.value.isInitialized
+                  _chewieController!.videoPlayerController.value.isPlaying
               ? Chewie(controller: _chewieController!)
               : const CircularProgressIndicator(),
+
           Positioned(
             top: 50,
             left: 20,
             right: 20,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                IconButton(
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MenuPage()),
+                  ),
+                  icon: Icon(Icons.arrow_back),
+                ),
                 Row(
                   children: [
                     CircleAvatar(
