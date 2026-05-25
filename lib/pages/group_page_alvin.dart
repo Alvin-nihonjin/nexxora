@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:nexxora/services/chats_service.dart';
-import 'package:nexxora/widgets/chats_widget.dart';
-import 'package:nexxora/widgets/story_widget.dart';
+import 'package:nexxora/widgets/group_widget_alvin.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class GroupPage extends StatefulWidget {
+  const GroupPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<GroupPage> createState() => _GroupPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _GroupPageState extends State<GroupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +17,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Color(0xFF0D1B2A),
         elevation: 0,
         scrolledUnderElevation: 0,
-        title: Text("Nexora", style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),),
+        title: Text("Group", style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),),
         automaticallyImplyLeading: false,
         actions: [
           Icon(Icons.search, color: Colors.white,),
@@ -30,12 +28,8 @@ class _HomePageState extends State<HomePage> {
       ),
       body: ListView(
         children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            child: StoryWidget(),
-          ),
           SizedBox(height: 10),
-          ChatsWidget(name: "", lastMessage: "", time: "", avatarUrl: ""),
+          GroupWidget(name: "", lastMessage: "", time: "", avatarUrl: ""),
         ],
       ),
       floatingActionButton: FloatingActionButton(

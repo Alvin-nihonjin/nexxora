@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nexxora/pages/profile_page.dart';
-import 'package:nexxora/services/chats_service.dart';
+import 'package:nexxora/pages/chat_page.dart';
+import 'package:nexxora/pages/profile_page_alvin.dart';
+import 'package:nexxora/services/chats_service_alvin.dart';
 
 class ChatsWidget extends StatelessWidget {
   final String name;
@@ -61,7 +62,7 @@ class ChatsWidget extends StatelessWidget {
               ),
             ),
             onTap: () {
-              Text("Buka chat dengan ${cht[i].name}");
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ChatPage(name: cht[i].name, phone: cht[i].phone, bio: cht[i].bio, date: cht[i].date, lastMessage: cht[i].lastMessage, time: "", avatarUrl: cht[i].avatarUrl),));
             },
           ),
         );

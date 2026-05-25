@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nexxora/widgets/call_widget.dart';
+import 'package:nexxora/widgets/call_widget_alvin.dart';
 
 class CallsPage extends StatefulWidget {
   const CallsPage({super.key});
@@ -29,7 +29,7 @@ class _CallsPageState extends State<CallsPage> {
       body: ListView(
         children:  [
           SizedBox(height: 10),
-          CallWidget(name: "", avatarUrl: "", time: "", isMissed:true ,isVideoCall: true),
+          CallWidget(name: "", avatarUrl: "", time: "", isMissed:true ,isVideoCall: true, phone: '',),
         ],
       ),
       floatingActionButton: FloatingActionButton(

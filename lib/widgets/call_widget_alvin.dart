@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:nexxora/services/call_service.dart';
+import 'package:nexxora/pages/call_page_akbar.dart';
+import 'package:nexxora/pages/video_call_page.dart';
+import 'package:nexxora/services/call_service_alvin.dart';
+import 'package:nexxora/services/chats_service_alvin.dart';
 
 class CallWidget extends StatelessWidget {
   final String name;
   final String avatarUrl;
   final String time;
+  final String phone;
   final bool isMissed;
   final bool isVideoCall;
   const CallWidget({
@@ -13,7 +17,7 @@ class CallWidget extends StatelessWidget {
     required this.avatarUrl,
     required this.time,
     required this.isMissed,
-    required this.isVideoCall,
+    required this.isVideoCall, required this.phone,
   });
 
   @override
@@ -63,12 +67,35 @@ class CallWidget extends StatelessWidget {
                 color: Colors.white,
               ),
               onPressed: () {
-
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => call.isVideoCall
+                        ? VideoCallPage()
+                        : CallPage(
+                      name: cm[i].name,
+                      phone: cm[i].phone,
+                      avatarUrl: cm[i].avatarUrl,
+                    ),
+                  ),
+                );
               },
             ),
             onTap: () {
-              Text("Buka detail call dengan ${call.name}");
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => call.isVideoCall
+                      ? VideoCallPage()
+                      : CallPage(
+                    name: cm[i].name,
+                    phone: cm[i].phone,
+                    avatarUrl: cm[i].avatarUrl,
+                  ),
+                ),
+              );
             },
+
           ),
         );
       },

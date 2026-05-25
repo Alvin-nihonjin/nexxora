@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:nexxora/pages/auth/register.dart';
-import 'package:nexxora/pages/home_page.dart';
+import 'package:nexxora/pages/home_page_alvin.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

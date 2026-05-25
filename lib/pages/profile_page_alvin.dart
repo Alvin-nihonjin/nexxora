@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nexxora/pages/call_page.dart';
+import 'package:nexxora/pages/call_page_akbar.dart';
 import 'package:nexxora/pages/videocall_page.dart';
-import 'package:nexxora/services/chats_service.dart';
+import 'package:nexxora/services/chats_service_alvin.dart';
 
 class ProfilePage extends StatelessWidget {
   final String name;
@@ -29,7 +29,7 @@ class ProfilePage extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.only(top: 20),
             child: Text(
-              "Contact Info njirr",
+              "Contact Info",
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
           ),

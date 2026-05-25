@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nexxora/services/group_service.dart';
+import 'package:nexxora/services/group_service_alvin.dart';
 
 class GroupWidget extends StatelessWidget {
   final String name;
@@ -53,7 +53,6 @@ class GroupWidget extends StatelessWidget {
             ),
 
             onTap: () {
-              Text("Buka chat dengan ${gm[i].name}");
             },
           ),
         );

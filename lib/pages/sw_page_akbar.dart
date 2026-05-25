@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:chewie/chewie.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_vlc_player/flutter_vlc_player.dart';
 import 'package:video_player/video_player.dart';
-import 'package:video_player_web/video_player_web.dart';
-import 'package:video_player_web/video_player_web.dart';
 
 class StoryPage extends StatefulWidget {
   final String name;
@@ -20,23 +19,32 @@ class StoryPage extends StatefulWidget {
   State<StoryPage> createState() => _StoryPageState();
 }
 
-late VideoPlayerController _controller;
+late VideoPlayerController _videoPlayerController;
+ChewieController? _chewieController;
 
 class _StoryPageState extends State<StoryPage> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset(widget.vdsw)
-      ..initialize().then((_) {
-        setState(() {});
+    _videoPlayerController = VideoPlayerController.asset(widget.vdsw);
+
+    _videoPlayerController.initialize().then((_) {
+      setState(() {
+        _chewieController = ChewieController(
+          videoPlayerController: _videoPlayerController,
+          autoPlay: true,
+          looping: true,
+        );
       });
+    });
   }
 
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+  //@override
+  //void dispose() {
+   // _videoPlayerController.dispose();
+   // _chewieController?.dispose();
+    //super.dispose();
+  //}
 
   @override
   Widget build(BuildContext context) {
@@ -44,26 +52,10 @@ class _StoryPageState extends State<StoryPage> {
       backgroundColor: Colors.black,
       body: Stack(
         children: [
-          _controller.value.isInitialized
-              ? AspectRatio(
-                  aspectRatio: _controller.value.aspectRatio,
-                  child: VideoPlayer(_controller),
-                )
-              : Container(),
-
-          FloatingActionButton(
-            onPressed: () {
-              setState(() {
-                _controller.value.isPlaying
-                    ? _controller.pause()
-                    : _controller.play();
-              });
-            },
-            child: Icon(
-              _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
-            ),
-          ),
-
+          _chewieController != null &&
+                  _chewieController!.videoPlayerController.value.isInitialized
+              ? Chewie(controller: _chewieController!)
+              : const CircularProgressIndicator(),
           Positioned(
             top: 50,
             left: 20,
@@ -75,7 +67,7 @@ class _StoryPageState extends State<StoryPage> {
                   children: [
                     CircleAvatar(
                       radius: 18,
-                      backgroundImage: AssetImage("assets/profile.jpg"),
+                      backgroundImage: AssetImage(widget.imgUrl),
                     ),
                     SizedBox(width: 10),
                     Text(
@@ -87,7 +79,6 @@ class _StoryPageState extends State<StoryPage> {
               ],
             ),
           ),
-
           Positioned(
             bottom: 40,
             left: 20,

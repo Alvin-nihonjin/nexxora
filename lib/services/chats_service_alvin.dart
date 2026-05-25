@@ -35,7 +35,7 @@ List<ChatsModel> cht = [
     date: "14/5/26",
     lastMessage: "ayo ml yam",
     time: "17:55",
-    avatarUrl: "assets/images/miaw.jpg",
+    avatarUrl: "assets/images/aldndeso.jpg",
   ),
   ChatsModel(
     name: "letdark",

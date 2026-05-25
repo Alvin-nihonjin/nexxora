@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:nexxora/pages/sw_page.dart';
-import 'package:nexxora/services/story_services.dart';
-import 'package:video_player/video_player.dart';
+import 'package:nexxora/pages/sw_page_akbar.dart';
+
+import 'package:nexxora/services/story_services_akbar.dart';
+// import 'package:video_player/video_player.dart';
 
 class StoryModel {
   final String name;

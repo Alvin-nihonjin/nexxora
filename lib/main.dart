@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nexxora/pages/home_page.dart';
-import 'package:nexxora/pages/splash_screen.dart';
+import 'package:nexxora/pages/home_page_alvin.dart';
+import 'package:nexxora/pages/splash_screen_akbar.dart';
 
 void main() {
 

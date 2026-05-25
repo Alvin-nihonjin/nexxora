@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nexxora/pages/home_page.dart';
-import 'package:nexxora/pages/menu_page.dart';
+import 'package:nexxora/pages/home_page_alvin.dart';
+import 'package:nexxora/pages/menu_page_akbar.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});

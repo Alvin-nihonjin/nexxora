@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nexxora/models/menu_model.dart';
-import 'package:nexxora/pages/calls_page.dart';
-import 'package:nexxora/pages/group_page.dart';
-import 'package:nexxora/pages/home_page.dart';
+import 'package:nexxora/pages/calls_page_alvin.dart';
+import 'package:nexxora/pages/group_page_alvin.dart';
+import 'package:nexxora/pages/home_page_alvin.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
