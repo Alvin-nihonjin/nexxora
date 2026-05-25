@@ -34,6 +34,8 @@ class _StoryPageState extends State<StoryPage> {
           videoPlayerController: _videoPlayerController,
           autoPlay: true,
           looping: true,
+          pauseOnBackgroundTap: true,
+          showControls: false,
         );
       });
     });
@@ -41,9 +43,9 @@ class _StoryPageState extends State<StoryPage> {
 
   //@override
   //void dispose() {
-   // _videoPlayerController.dispose();
-   // _chewieController?.dispose();
-    //super.dispose();
+  // _videoPlayerController.dispose();
+  // _chewieController?.dispose();
+  //super.dispose();
   //}
 
   @override
